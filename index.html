@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Marketplace de Serviços</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Pedido de Serviço</h1>
+
+<div class="box">
+  <label>Serviço</label>
+  <input id="servico" placeholder="Ex: Montar varal">
+
+  <label>Descrição</label>
+  <textarea id="descricao"></textarea>
+
+  <label>Tempo máximo (horas)</label>
+  <input id="tempo" type="number" value="1">
+
+  <label>Valor máximo (R$)</label>
+  <input id="valor" type="number" value="100">
+
+  <button onclick="abrirChamado()">Abrir chamado</button>
+</div>
+
+<h2>Chamado aberto</h2>
+<div id="chamado" class="box"></div>
+
+<h2>Propostas</h2>
+<div class="box">
+  <input id="oferta" type="number" placeholder="Valor do prestador">
+  <button onclick="enviarOferta()">Enviar oferta</button>
+</div>
+
+<div id="propostas"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  padding: 20px;
+}
+
+h1, h2 {
+  margin-top: 30px;
+}
+
+.box {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+let chamadoAtual = null;
+
+function abrirChamado() {
+  chamadoAtual = {
+    servico: servico.value,
+    descricao: descricao.value,
+    tempo: tempo.value,
+    valor: valor.value
+  };
+
+  document.getElementById("chamado").innerHTML = `
+    <b>${chamadoAtual.servico}</b><br>
+    ${chamadoAtual.descricao}<br>
+    Tempo: até ${chamadoAtual.tempo}h<br>
+    Valor máximo: R$ ${chamadoAtual.valor}
+  `;
+}
+
+function enviarOferta() {
+  if (!chamadoAtual) {
+    alert("Abra um chamado primeiro");
+    return;
+  }
+
+  const valorOferta = oferta.value;
+
+  const div = document.createElement("div");
+  div.className = "box";
+  div.innerHTML = `
+    Prestador ofereceu R$ ${valorOferta}<br>
+    <button onclick="aceitar(${valorOferta})">Aceitar</button>
+    <button onclick="this.parentElement.remove()">Recusar</button>
+  `;
+
+  document.getElementById("propostas").appendChild(div);
+}
+
+function aceitar(valor) {
+  alert(`Serviço fechado por R$ ${valor}`);
+}
+
+
+
