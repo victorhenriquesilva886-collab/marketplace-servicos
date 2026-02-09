@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Marketplace de Serviços</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -25,10 +25,10 @@
   <button onclick="abrirChamado()">Abrir chamado</button>
 </div>
 
-<h2>Chamado aberto</h2>
-<div id="chamado" class="box"></div>
+<hr>
 
-<h2>Propostas</h2>
+<h2>Propostas de Prestadores</h2>
+
 <div class="box">
   <input id="oferta" type="number" placeholder="Valor do prestador">
   <button onclick="enviarOferta()">Enviar oferta</button>
@@ -39,69 +39,48 @@
 <script src="script.js"></script>
 </body>
 </html>
-
 <style>
-  body {
+body {
   font-family: Arial, sans-serif;
-  background: #f2f2f2;
   padding: 20px;
 }
 
-h1, h2 {
-  margin-top: 30px;
-}
-
 .box {
-  background: #fff;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
-label {
+input, textarea, button {
   display: block;
-  margin-top: 10px;
-}
-
-
-input, textarea {
+  margin: 5px 0;
   width: 100%;
-  padding: 6px;
-  margin-top: 4px;
-}
-
-button {
-  margin-top: 15px;
-  padding: 8px 12px;
-  cursor: pointer;
-}
-</style>
-
+}</style>
 let chamadoAtual = null;
 
 function abrirChamado() {
+  const servico = document.getElementById("servico").value;
+  const descricao = document.getElementById("descricao").value;
+  const tempo = document.getElementById("tempo").value;
+  const valor = document.getElementById("valor").value;
+
   chamadoAtual = {
-    servico: servico.value,
-    descricao: descricao.value,
-    tempo: tempo.value,
-    valor: valor.value
+    servico,
+    descricao,
+    tempo,
+    valor
   };
 
-  document.getElementById("chamado").innerHTML = `
-    <b>${chamadoAtual.servico}</b><br>
-    ${chamadoAtual.descricao}<br>
-    Tempo: até ${chamadoAtual.tempo}h<br>
-    Valor máximo: R$ ${chamadoAtual.valor}
-  `;
+  alert("Chamado criado!");
 }
 
 function enviarOferta() {
   if (!chamadoAtual) {
-    alert("Abra um chamado primeiro");
+    alert("Crie um chamado primeiro");
     return;
   }
 
-  const valorOferta = oferta.value;
+  const valorOferta = document.getElementById("oferta").value;
 
   const div = document.createElement("div");
   div.className = "box";
@@ -115,8 +94,5 @@ function enviarOferta() {
 }
 
 function aceitar(valor) {
-  alert(`Serviço fechado por R$ ${valor}`);
+  alert("Serviço fechado por R$ " + valor);
 }
-
-
-
