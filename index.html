@@ -5,17 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ResolveJá - Marido de Aluguel</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
+
+  <script>
+    (function(){ emailjs.init("tBH2N7mvqgQ82bB10"); })();
+  </script>
 
   <!-- Header -->
   <header class="bg-blue-600 text-white p-4 shadow-md">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
       <h1 class="text-2xl font-bold">ResolveJá</h1>
       <nav class="space-x-4">
-        <a href="#servicos" class="hover:underline">Serviços</a>
-        <a href="#como-funciona" class="hover:underline">Como funciona</a>
-        <a href="#contato" class="hover:underline">Solicitar</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Solicitar</a>
       </nav>
     </div>
   </header>
@@ -23,46 +27,25 @@
   <!-- Hero -->
   <section class="text-center py-16 bg-white">
     <h2 class="text-4xl font-bold mb-4">Precisando de ajuda em casa?</h2>
-    <p class="text-lg mb-6">Conectamos você aos melhores profissionais para pequenos reparos.</p>
-    <a href="#contato" class="bg-blue-600 text-white px-6 py-3 rounded-xl shadow hover:bg-blue-700">Solicitar Serviço</a>
+    <p class="text-lg mb-6">Serviços rápidos, confiáveis e acessíveis</p>
+    <a href="#contato" class="bg-blue-600 text-white px-6 py-3 rounded-xl">Solicitar Serviço</a>
   </section>
 
   <!-- Serviços -->
   <section id="servicos" class="py-16 max-w-6xl mx-auto">
-    <h3 class="text-3xl font-bold text-center mb-10">Serviços Disponíveis</h3>
+    <h3 class="text-3xl font-bold text-center mb-10">Serviços</h3>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h4 class="font-bold text-xl mb-2">Montagem de Móveis</h4>
-        <p>Montamos seus móveis com rapidez e segurança.</p>
+      <div class="bg-white p-4 rounded-xl shadow">
+        <img src="https://source.unsplash.com/400x300/?furniture,assembly" class="rounded mb-3">
+        <h4 class="font-bold">Montagem de Móveis</h4>
       </div>
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h4 class="font-bold text-xl mb-2">Instalações</h4>
-        <p>Instalação de prateleiras, cortinas, suportes e mais.</p>
+      <div class="bg-white p-4 rounded-xl shadow">
+        <img src="https://source.unsplash.com/400x300/?tools,repair" class="rounded mb-3">
+        <h4 class="font-bold">Instalações</h4>
       </div>
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h4 class="font-bold text-xl mb-2">Pequenos Reparos</h4>
-        <p>Consertos elétricos e hidráulicos básicos.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Como funciona -->
-  <section id="como-funciona" class="bg-gray-100 py-16">
-    <div class="max-w-6xl mx-auto text-center">
-      <h3 class="text-3xl font-bold mb-10">Como Funciona</h3>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div>
-          <h4 class="font-bold text-xl mb-2">1. Solicite</h4>
-          <p>Descreva o serviço que você precisa.</p>
-        </div>
-        <div>
-          <h4 class="font-bold text-xl mb-2">2. Receba proposta</h4>
-          <p>Profissionais entram em contato com você.</p>
-        </div>
-        <div>
-          <h4 class="font-bold text-xl mb-2">3. Resolva</h4>
-          <p>Escolha e agende o melhor horário.</p>
-        </div>
+      <div class="bg-white p-4 rounded-xl shadow">
+        <img src="https://source.unsplash.com/400x300/?plumbing,electrician" class="rounded mb-3">
+        <h4 class="font-bold">Reparos</h4>
       </div>
     </div>
   </section>
@@ -70,24 +53,38 @@
   <!-- Formulário -->
   <section id="contato" class="py-16 max-w-2xl mx-auto">
     <h3 class="text-3xl font-bold text-center mb-8">Solicitar Serviço</h3>
-    <form class="bg-white p-6 rounded-2xl shadow space-y-4" onsubmit="enviarFormulario(event)">
-      <input type="text" placeholder="Nome" required class="w-full p-3 border rounded-xl">
-      <input type="tel" placeholder="Telefone" required class="w-full p-3 border rounded-xl">
-      <input type="text" placeholder="Endereço" required class="w-full p-3 border rounded-xl">
-      <textarea placeholder="Descreva o serviço" required class="w-full p-3 border rounded-xl"></textarea>
-      <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700">Enviar Solicitação</button>
+    <form class="bg-white p-6 rounded-xl shadow space-y-4" onsubmit="enviarFormulario(event)">
+      <input type="text" id="nome" placeholder="Nome" required class="w-full p-3 border rounded">
+      <input type="tel" id="telefone" placeholder="Telefone" required class="w-full p-3 border rounded">
+      <input type="text" id="localizacao" placeholder="Localização (bairro/cidade)" required class="w-full p-3 border rounded">
+      <input type="number" id="preco" placeholder="Preço estimado (R$)" required class="w-full p-3 border rounded">
+      <textarea id="descricao" placeholder="Descreva o serviço" required class="w-full p-3 border rounded"></textarea>
+      <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded">Enviar</button>
     </form>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-blue-600 text-white text-center p-4">
-    <p>© 2026 ResolveJá - Todos os direitos reservados</p>
+    <p>© 2026 ResolveJá</p>
   </footer>
 
   <script>
     function enviarFormulario(e) {
       e.preventDefault();
-      alert('Solicitação enviada com sucesso!');
+
+      const params = {
+        nome: document.getElementById('nome').value,
+        telefone: document.getElementById('telefone').value,
+        localizacao: document.getElementById('localizacao').value,
+        preco: document.getElementById('preco').value,
+        descricao: document.getElementById('descricao').value
+      };
+
+      emailjs.send("service_ghsk8cs", "template_1x779qw", params)
+        .then(function() {
+          alert("Solicitação enviada para seu email!");
+        }, function(error) {
+          alert("Erro ao enviar. Configure o EmailJS corretamente.");
+        });
     }
   </script>
 
