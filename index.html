@@ -2,99 +2,94 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Marketplace de Serviços</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResolveJá - Marido de Aluguel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-<h1>Pedido de Serviço</h1>
+  <!-- Header -->
+  <header class="bg-blue-600 text-white p-4 shadow-md">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">ResolveJá</h1>
+      <nav class="space-x-4">
+        <a href="#servicos" class="hover:underline">Serviços</a>
+        <a href="#como-funciona" class="hover:underline">Como funciona</a>
+        <a href="#contato" class="hover:underline">Solicitar</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="box">
-  <label>Serviço</label>
-  <input id="servico" placeholder="Ex: Montar varal">
+  <!-- Hero -->
+  <section class="text-center py-16 bg-white">
+    <h2 class="text-4xl font-bold mb-4">Precisando de ajuda em casa?</h2>
+    <p class="text-lg mb-6">Conectamos você aos melhores profissionais para pequenos reparos.</p>
+    <a href="#contato" class="bg-blue-600 text-white px-6 py-3 rounded-xl shadow hover:bg-blue-700">Solicitar Serviço</a>
+  </section>
 
-  <label>Descrição</label>
-  <textarea id="descricao"></textarea>
+  <!-- Serviços -->
+  <section id="servicos" class="py-16 max-w-6xl mx-auto">
+    <h3 class="text-3xl font-bold text-center mb-10">Serviços Disponíveis</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <h4 class="font-bold text-xl mb-2">Montagem de Móveis</h4>
+        <p>Montamos seus móveis com rapidez e segurança.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <h4 class="font-bold text-xl mb-2">Instalações</h4>
+        <p>Instalação de prateleiras, cortinas, suportes e mais.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <h4 class="font-bold text-xl mb-2">Pequenos Reparos</h4>
+        <p>Consertos elétricos e hidráulicos básicos.</p>
+      </div>
+    </div>
+  </section>
 
-  <label>Tempo máximo (horas)</label>
-  <input id="tempo" type="number" value="1">
+  <!-- Como funciona -->
+  <section id="como-funciona" class="bg-gray-100 py-16">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-10">Como Funciona</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div>
+          <h4 class="font-bold text-xl mb-2">1. Solicite</h4>
+          <p>Descreva o serviço que você precisa.</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-xl mb-2">2. Receba proposta</h4>
+          <p>Profissionais entram em contato com você.</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-xl mb-2">3. Resolva</h4>
+          <p>Escolha e agende o melhor horário.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <label>Valor máximo (R$)</label>
-  <input id="valor" type="number" value="100">
+  <!-- Formulário -->
+  <section id="contato" class="py-16 max-w-2xl mx-auto">
+    <h3 class="text-3xl font-bold text-center mb-8">Solicitar Serviço</h3>
+    <form class="bg-white p-6 rounded-2xl shadow space-y-4" onsubmit="enviarFormulario(event)">
+      <input type="text" placeholder="Nome" required class="w-full p-3 border rounded-xl">
+      <input type="tel" placeholder="Telefone" required class="w-full p-3 border rounded-xl">
+      <input type="text" placeholder="Endereço" required class="w-full p-3 border rounded-xl">
+      <textarea placeholder="Descreva o serviço" required class="w-full p-3 border rounded-xl"></textarea>
+      <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700">Enviar Solicitação</button>
+    </form>
+  </section>
 
-  <button onclick="abrirChamado()">Abrir chamado</button>
-</div>
+  <!-- Footer -->
+  <footer class="bg-blue-600 text-white text-center p-4">
+    <p>© 2026 ResolveJá - Todos os direitos reservados</p>
+  </footer>
 
-<hr>
+  <script>
+    function enviarFormulario(e) {
+      e.preventDefault();
+      alert('Solicitação enviada com sucesso!');
+    }
+  </script>
 
-<h2>Propostas de Prestadores</h2>
-
-<div class="box">
-  <input id="oferta" type="number" placeholder="Valor do prestador">
-  <button onclick="enviarOferta()">Enviar oferta</button>
-</div>
-
-<div id="propostas"></div>
-
-<script src="script.js"></script>
 </body>
 </html>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-}
-
-.box {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-input, textarea, button {
-  display: block;
-  margin: 5px 0;
-  width: 100%;
-}
-</style>
-<script>
-let chamadoAtual = null;
-
-function abrirChamado() {
-  const servico = document.getElementById("servico").value;
-  const descricao = document.getElementById("descricao").value;
-  const tempo = document.getElementById("tempo").value;
-  const valor = document.getElementById("valor").value;
-
-  chamadoAtual = {
-    servico,
-    descricao,
-    tempo,
-    valor
-  };
-
-  alert("Chamado criado!");
-}
-
-function enviarOferta() {
-  if (!chamadoAtual) {
-    alert("Crie um chamado primeiro");
-    return;
-  }
-
-  const valorOferta = document.getElementById("oferta").value;
-
-  const div = document.createElement("div");
-  div.className = "box";
-  div.innerHTML = `
-    Prestador ofereceu R$ ${valorOferta}<br>
-    <button onclick="aceitar(${valorOferta})">Aceitar</button>
-    <button onclick="this.parentElement.remove()">Recusar</button>
-  `;
-
-  document.getElementById("propostas").appendChild(div);
-}
-
-function aceitar(valor) {
-  alert("Serviço fechado por R$ " + valor);
-}</script>
