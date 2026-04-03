@@ -9,84 +9,87 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <script>
-    (function(){ emailjs.init("tBH2N7mvqgQ82bB10"); })();
-  </script>
+<script>
+(function(){ emailjs.init("tBH2N7mvqgQ82bB10"); })();
+</script>
 
-  <!-- Header -->
-  <header class="bg-blue-600 text-white p-4 shadow-md">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">ResolveJá</h1>
-      <nav class="space-x-4">
-        <a href="#servicos">Serviços</a>
-        <a href="#contato">Solicitar</a>
-      </nav>
-    </div>
-  </header>
+<!-- HEADER -->
+<header class="bg-blue-600 text-white p-4">
+  <div class="max-w-6xl mx-auto flex justify-between">
+    <h1 class="text-2xl font-bold">ResolveJá</h1>
+  </div>
+</header>
 
-  <!-- Hero -->
-  <section class="text-center py-16 bg-white">
-    <h2 class="text-4xl font-bold mb-4">Precisando de ajuda em casa?</h2>
-    <p class="text-lg mb-6">Serviços rápidos, confiáveis e acessíveis</p>
-    <a href="#contato" class="bg-blue-600 text-white px-6 py-3 rounded-xl">Solicitar Serviço</a>
-  </section>
+<!-- HERO -->
+<section class="text-center py-12 bg-white">
+  <h2 class="text-3xl font-bold mb-4">Serviços rápidos e confiáveis</h2>
+  <p class="mb-6">Montagem, reparos e instalações com agilidade</p>
+  <a href="#contato" class="bg-blue-600 text-white px-6 py-3 rounded">Solicitar Serviço</a>
+</section>
 
-  <!-- Serviços -->
-  <section id="servicos" class="py-16 max-w-6xl mx-auto">
-    <h3 class="text-3xl font-bold text-center mb-10">Serviços</h3>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-white p-4 rounded-xl shadow">
-        <img src="https://source.unsplash.com/400x300/?furniture,assembly" class="rounded mb-3">
-        <h4 class="font-bold">Montagem de Móveis</h4>
-      </div>
-      <div class="bg-white p-4 rounded-xl shadow">
-        <img src="https://source.unsplash.com/400x300/?tools,repair" class="rounded mb-3">
-        <h4 class="font-bold">Instalações</h4>
-      </div>
-      <div class="bg-white p-4 rounded-xl shadow">
-        <img src="https://source.unsplash.com/400x300/?plumbing,electrician" class="rounded mb-3">
-        <h4 class="font-bold">Reparos</h4>
-      </div>
-    </div>
-  </section>
+<!-- IMAGENS -->
+<section class="max-w-6xl mx-auto py-12">
+  <h3 class="text-2xl font-bold mb-6 text-center">Serviços Realizados</h3>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <img src="https://source.unsplash.com/400x300/?handyman,repair" class="rounded shadow">
+    <img src="https://source.unsplash.com/400x300/?electrician,work" class="rounded shadow">
+    <img src="https://source.unsplash.com/400x300/?plumber,fixing" class="rounded shadow">
+  </div>
+</section>
 
-  <!-- Formulário -->
-  <section id="contato" class="py-16 max-w-2xl mx-auto">
-    <h3 class="text-3xl font-bold text-center mb-8">Solicitar Serviço</h3>
-    <form class="bg-white p-6 rounded-xl shadow space-y-4" onsubmit="enviarFormulario(event)">
-      <input type="text" id="nome" placeholder="Nome" required class="w-full p-3 border rounded">
-      <input type="tel" id="telefone" placeholder="Telefone" required class="w-full p-3 border rounded">
-      <input type="text" id="localizacao" placeholder="Localização (bairro/cidade)" required class="w-full p-3 border rounded">
-      <input type="number" id="preco" placeholder="Preço estimado (R$)" required class="w-full p-3 border rounded">
-      <textarea id="descricao" placeholder="Descreva o serviço" required class="w-full p-3 border rounded"></textarea>
-      <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded">Enviar</button>
-    </form>
-  </section>
+<!-- VIDEO -->
+<section class="max-w-4xl mx-auto py-12 text-center">
+  <h3 class="text-2xl font-bold mb-6">Veja como trabalhamos</h3>
+  <div class="aspect-video">
+    <iframe class="w-full h-full rounded"
+      src="https://www.youtube.com/embed/KYoe1sILA7E"
+      title="Vídeo serviço"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
 
-  <footer class="bg-blue-600 text-white text-center p-4">
-    <p>© 2026 ResolveJá</p>
-  </footer>
+<!-- FORMULÁRIO -->
+<section id="contato" class="py-12 max-w-2xl mx-auto">
+  <h3 class="text-2xl font-bold text-center mb-6">Solicitar Serviço</h3>
+  <form class="bg-white p-6 rounded shadow space-y-4" onsubmit="enviarFormulario(event)">
+    <input type="text" id="nome" placeholder="Nome" required class="w-full p-2 border rounded">
+    <input type="tel" id="telefone" placeholder="Telefone" required class="w-full p-2 border rounded">
+    <input type="text" id="localizacao" placeholder="Localização" required class="w-full p-2 border rounded">
+    <input type="number" id="preco" placeholder="Preço estimado (R$)" required class="w-full p-2 border rounded">
+    <textarea id="descricao" placeholder="Descreva o serviço" required class="w-full p-2 border rounded"></textarea>
+    <button type="submit" class="bg-blue-600 text-white w-full py-2 rounded">Enviar</button>
+  </form>
+</section>
 
-  <script>
-    function enviarFormulario(e) {
-      e.preventDefault();
+<!-- BOTÃO WHATSAPP -->
+<a href="https://wa.me/5547992220340" target="_blank"
+ class="fixed bottom-5 right-5 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg">
+  WhatsApp
+</a>
 
-      const params = {
-        nome: document.getElementById('nome').value,
-        telefone: document.getElementById('telefone').value,
-        localizacao: document.getElementById('localizacao').value,
-        preco: document.getElementById('preco').value,
-        descricao: document.getElementById('descricao').value
-      };
+<!-- SCRIPT -->
+<script>
+function enviarFormulario(e) {
+  e.preventDefault();
 
-      emailjs.send("service_qcxv32s", "template_hjrzo2q", params)
-        .then(function() {
-          alert("Solicitação enviada para seu email!");
-        }, function(error) {
-          alert("Erro ao enviar. Configure o EmailJS corretamente.");
-        });
-    }
-  </script>
+  const params = {
+    nome: document.getElementById('nome').value,
+    telefone: document.getElementById('telefone').value,
+    localizacao: document.getElementById('localizacao').value,
+    preco: document.getElementById('preco').value,
+    descricao: document.getElementById('descricao').value
+  };
+
+  emailjs.send("service_qcxv32s", "template_hjrzo2q", params)
+  .then(() => {
+    alert("Solicitação enviada com sucesso!");
+  }, () => {
+    alert("Erro ao enviar.");
+  });
+}
+</script>
 
 </body>
 </html>
