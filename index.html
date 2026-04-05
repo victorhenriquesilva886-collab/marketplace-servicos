@@ -4,9 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ido - Serviços Residenciais</title>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- SEO / Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ido Service",
+    "url": "https://idoservice.com.br",
+    "logo": "https://idoservice.com.br/logo.png"
+  }
+  </script>
 </head>
+
 <body class="bg-green-50 text-gray-800">
 
 <script>
@@ -15,19 +34,23 @@
 
 <!-- HEADER -->
 <header class="bg-green-400 text-white p-4">
-  <div class="max-w-6xl mx-auto flex justify-between">
-    <div class="flex items-center space-x-3">
-        <img src="logo.png" alt="Ido Logo" class="h-10 w-10">
-        <h1 class="text-2xl font-bold">Ido</h1>
-      </div>
+  <div class="max-w-6xl mx-auto flex items-center space-x-3">
+    <img src="logo.png" alt="Ido Logo" class="h-12 w-12">
+    <h1 class="text-2xl font-bold">Ido</h1>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="text-center py-12 bg-white">
-  <h2 class="text-3xl font-bold mb-4">Soluções rápidas para sua casa</h2>
-  <p class="mb-6">Montagem, reparos e serviços completos com qualidade e confiança</p>
-  <a href="#contato" class="bg-green-400 text-white px-6 py-3 rounded">Solicitar Serviço</a>
+  <h2 class="text-3xl font-bold mb-4">
+    Serviços residenciais rápidos e confiáveis em Joinville
+  </h2>
+  <p class="mb-6">
+    Do simples ao complexo, resolvemos para você com agilidade e qualidade
+  </p>
+  <a href="#contato" class="bg-green-400 text-white px-6 py-3 rounded">
+    Solicitar Serviço
+  </a>
 </section>
 
 <!-- INSTITUCIONAL -->
@@ -42,22 +65,20 @@
 
 <!-- IMAGENS -->
 <section class="max-w-6xl mx-auto py-12">
-  <h3 class="text-2xl font-bold mb-6 text-center">Serviços Realizados</h3>
+  <h3 class="text-2xl font-bold mb-6 text-center">Serviços</h3>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=400&h=300&q=80" class="rounded shadow">
-    <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=400&h=300&q=80" class="rounded shadow">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&h=300&q=80" class="rounded shadow">
+    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" class="rounded shadow">
+    <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0" class="rounded shadow">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" class="rounded shadow">
   </div>
 </section>
 
 <!-- VIDEO -->
 <section class="max-w-4xl mx-auto py-12 text-center">
-  <h3 class="text-2xl font-bold mb-6">Veja como trabalhamos</h3>
+  <h3 class="text-2xl font-bold mb-6">Veja como funciona</h3>
   <div class="aspect-video">
     <iframe class="w-full h-full rounded"
       src="https://www.youtube.com/embed/KYoe1sILA7E"
-      title="Vídeo serviço"
-      frameborder="0"
       allowfullscreen>
     </iframe>
   </div>
@@ -66,13 +87,17 @@
 <!-- FORMULÁRIO -->
 <section id="contato" class="py-12 max-w-2xl mx-auto">
   <h3 class="text-2xl font-bold text-center mb-6">Solicitar Serviço</h3>
+
   <form class="bg-white p-6 rounded shadow space-y-4" onsubmit="enviarFormulario(event)">
     <input type="text" id="nome" placeholder="Nome" required class="w-full p-2 border rounded">
     <input type="tel" id="telefone" placeholder="Telefone" required class="w-full p-2 border rounded">
     <input type="text" id="localizacao" placeholder="Localização" required class="w-full p-2 border rounded">
     <input type="number" id="preco" placeholder="Preço estimado (R$)" required class="w-full p-2 border rounded">
     <textarea id="descricao" placeholder="Descreva o serviço" required class="w-full p-2 border rounded"></textarea>
-    <button type="submit" class="bg-green-400 text-white w-full py-2 rounded">Enviar</button>
+
+    <button type="submit" class="bg-green-400 text-white w-full py-2 rounded">
+      Enviar
+    </button>
   </form>
 </section>
 
