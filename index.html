@@ -9,7 +9,6 @@
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
   <link rel="icon" href="logo.png">
-
 </head>
 
 <body class="bg-green-50 text-gray-800">
@@ -36,47 +35,44 @@
   </p>
 </section>
 
-<!-- IMAGEM (substituindo vídeo) -->
+<!-- IMAGEM -->
 <section class="max-w-4xl mx-auto py-8">
   <img 
     src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=80"
     class="rounded shadow w-full">
 </section>
 
-<!-- SERVIÇOS (CARDS) -->
+<!-- SERVIÇOS -->
 <section class="max-w-6xl mx-auto py-12">
   <h3 class="text-2xl font-bold text-center mb-8">Serviços Disponíveis</h3>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
     <!-- CARD 1 -->
-    <div class="bg-white p-4 rounded shadow">
+    <div onclick="abrirModal('Corte de Grama','Corte completo + limpeza do local','R$80','Joel Santos')" 
+    class="bg-white p-4 rounded shadow cursor-pointer hover:scale-105 transition">
       <img src="https://images.unsplash.com/photo-1597006520124-87f8b8d1c1c0?auto=format&fit=crop&w=400&q=80" class="rounded mb-3">
       <h4 class="font-bold text-lg">Corte de Grama</h4>
-      <p>Prestador: Victor Henrique</p>
-      <p>Local: Joinville</p>
+      <p>Prestador: Joel Santos</p>
       <p class="text-green-600 font-bold">A partir de R$80</p>
-      <p class="text-sm mt-2">📞 47 99222-0340</p>
     </div>
 
     <!-- CARD 2 -->
-    <div class="bg-white p-4 rounded shadow">
+    <div onclick="abrirModal('Serviço Elétrico','Instalações e reparos elétricos residenciais','R$150','Joel Santos')" 
+    class="bg-white p-4 rounded shadow cursor-pointer hover:scale-105 transition">
       <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=400&q=80" class="rounded mb-3">
       <h4 class="font-bold text-lg">Serviço Elétrico</h4>
-      <p>Prestador: Victor Henrique</p>
-      <p>Local: Joinville</p>
+      <p>Prestador: Joel Santos</p>
       <p class="text-green-600 font-bold">A partir de R$150</p>
-      <p class="text-sm mt-2">📞 47 99222-0340</p>
     </div>
 
     <!-- CARD 3 -->
-    <div class="bg-white p-4 rounded shadow">
+    <div onclick="abrirModal('Montagem de Móveis','Montagem rápida e segura de móveis','R$120','Joel Santos')" 
+    class="bg-white p-4 rounded shadow cursor-pointer hover:scale-105 transition">
       <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" class="rounded mb-3">
       <h4 class="font-bold text-lg">Montagem de Móveis</h4>
-      <p>Prestador: Victor Henrique</p>
-      <p>Local: Joinville</p>
+      <p>Prestador: Joel Santos</p>
       <p class="text-green-600 font-bold">A partir de R$120</p>
-      <p class="text-sm mt-2">📞 47 99222-0340</p>
     </div>
 
   </div>
@@ -99,7 +95,26 @@
   </form>
 </section>
 
-<!-- WHATSAPP -->
+<!-- MODAL -->
+<div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
+
+  <div class="bg-white p-6 rounded w-80 text-center">
+    <h2 id="modalTitulo" class="text-xl font-bold mb-2"></h2>
+    <p id="modalDescricao" class="mb-2"></p>
+    <p id="modalPreco" class="text-green-600 font-bold mb-2"></p>
+    <p id="modalPrestador" class="mb-4"></p>
+
+    <a id="whatsBtn" target="_blank"
+      class="bg-green-500 text-white px-4 py-2 rounded block mb-2">
+      Falar no WhatsApp
+    </a>
+
+    <button onclick="fecharModal()" class="text-gray-500">Fechar</button>
+  </div>
+
+</div>
+
+<!-- WHATSAPP FIXO -->
 <a href="https://wa.me/5547992220340" target="_blank"
  class="fixed bottom-5 right-5 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg">
   WhatsApp
@@ -107,23 +122,22 @@
 
 <!-- SCRIPT -->
 <script>
-function enviarFormulario(e) {
-  e.preventDefault();
+function abrirModal(servico, descricao, preco, prestador) {
+  document.getElementById('modal').classList.remove('hidden');
+  document.getElementById('modal').classList.add('flex');
 
-  const params = {
-    nome: document.getElementById('nome').value,
-    telefone: document.getElementById('telefone').value,
-    localizacao: document.getElementById('localizacao').value,
-    preco: document.getElementById('preco').value,
-    descricao: document.getElementById('descricao').value
-  };
+  document.getElementById('modalTitulo').innerText = servico;
+  document.getElementById('modalDescricao').innerText = descricao;
+  document.getElementById('modalPreco').innerText = preco;
+  document.getElementById('modalPrestador').innerText = "Prestador: " + prestador;
 
-  emailjs.send("service_qcxv32s", "template_hjrzo2q", params)
-  .then(() => {
-    alert("Solicitação enviada com sucesso!");
-  }, () => {
-    alert("Erro ao enviar.");
-  });
+  const mensagem = `Olá, tenho interesse no serviço de ${servico}`;
+  document.getElementById('whatsBtn').href =
+    `https://wa.me/5547992220340?text=${encodeURIComponent(mensagem)}`;
+}
+
+function fecharModal() {
+  document.getElementById('modal').classList.add('hidden');
 }
 </script>
 
