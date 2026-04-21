@@ -1,37 +1,15 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3SMKTQT899"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3SMKTQT899');
-</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ido - Serviços Residenciais</title>
+  <title>Ido - Serviços</title>
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://idoservice.com.br/logo.png">
-  <!-- SEO / Google -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Ido Service",
-    "url": "https://idoservice.com.br",
-    "logo": "https://idoservice.com.br/logo.png"
-  }
-  </script>
+  <link rel="icon" href="logo.png">
+
 </head>
 
 <body class="bg-green-50 text-gray-800">
@@ -43,7 +21,7 @@
 <!-- HEADER -->
 <header class="bg-green-400 text-white p-4">
   <div class="max-w-6xl mx-auto flex items-center space-x-3">
-    <img src="logo.png" alt="Ido Logo" class="h-12 w-12">
+    <img src="logo.png" class="h-12 w-12">
     <h1 class="text-2xl font-bold">Ido</h1>
   </div>
 </header>
@@ -51,56 +29,68 @@
 <!-- HERO -->
 <section class="text-center py-12 bg-white">
   <h2 class="text-3xl font-bold mb-4">
-    Serviços residenciais rápidos e confiáveis em Joinville
+    Serviços rápidos e confiáveis em Joinville
   </h2>
   <p class="mb-6">
-    Do simples ao complexo, resolvemos para você com agilidade e qualidade
-  </p>
-  <a href="#contato" class="bg-green-400 text-white px-6 py-3 rounded">
-    Solicitar Serviço
-  </a>
-</section>
-
-<!-- INSTITUCIONAL -->
-<section class="max-w-4xl mx-auto py-12 text-center">
-  <h3 class="text-2xl font-bold mb-4">Sobre a Ido</h3>
-  <p class="text-lg">
-    A Ido é uma empresa focada em oferecer soluções práticas e eficientes para serviços residenciais em Joinville.
-    Atuamos com compromisso, agilidade e qualidade, atendendo desde pequenos reparos até serviços mais complexos.
-    Nosso objetivo é conectar você a profissionais confiáveis, garantindo segurança e excelência em cada atendimento.
+    Do simples ao complexo, resolvemos tudo para você
   </p>
 </section>
 
-<!-- IMAGENS -->
+<!-- IMAGEM (substituindo vídeo) -->
+<section class="max-w-4xl mx-auto py-8">
+  <img 
+    src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=80"
+    class="rounded shadow w-full">
+</section>
+
+<!-- SERVIÇOS (CARDS) -->
 <section class="max-w-6xl mx-auto py-12">
-  <h3 class="text-2xl font-bold mb-6 text-center">Serviços</h3>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" class="rounded shadow">
-    <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0" class="rounded shadow">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" class="rounded shadow">
-  </div>
-</section>
+  <h3 class="text-2xl font-bold text-center mb-8">Serviços Disponíveis</h3>
 
-<!-- VIDEO -->
-<section class="max-w-4xl mx-auto py-12 text-center">
-  <h3 class="text-2xl font-bold mb-6">Veja como funciona</h3>
-  <div class="aspect-video">
-    <iframe class="w-full h-full rounded"
-      src="https://www.youtube.com/embed/KYoe1sILA7E"
-      allowfullscreen>
-    </iframe>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <!-- CARD 1 -->
+    <div class="bg-white p-4 rounded shadow">
+      <img src="https://images.unsplash.com/photo-1597006520124-87f8b8d1c1c0?auto=format&fit=crop&w=400&q=80" class="rounded mb-3">
+      <h4 class="font-bold text-lg">Corte de Grama</h4>
+      <p>Prestador: Victor Henrique</p>
+      <p>Local: Joinville</p>
+      <p class="text-green-600 font-bold">A partir de R$80</p>
+      <p class="text-sm mt-2">📞 47 99222-0340</p>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="bg-white p-4 rounded shadow">
+      <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=400&q=80" class="rounded mb-3">
+      <h4 class="font-bold text-lg">Serviço Elétrico</h4>
+      <p>Prestador: Victor Henrique</p>
+      <p>Local: Joinville</p>
+      <p class="text-green-600 font-bold">A partir de R$150</p>
+      <p class="text-sm mt-2">📞 47 99222-0340</p>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="bg-white p-4 rounded shadow">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" class="rounded mb-3">
+      <h4 class="font-bold text-lg">Montagem de Móveis</h4>
+      <p>Prestador: Victor Henrique</p>
+      <p>Local: Joinville</p>
+      <p class="text-green-600 font-bold">A partir de R$120</p>
+      <p class="text-sm mt-2">📞 47 99222-0340</p>
+    </div>
+
   </div>
 </section>
 
 <!-- FORMULÁRIO -->
-<section id="contato" class="py-12 max-w-2xl mx-auto">
+<section class="py-12 max-w-2xl mx-auto">
   <h3 class="text-2xl font-bold text-center mb-6">Solicitar Serviço</h3>
 
   <form class="bg-white p-6 rounded shadow space-y-4" onsubmit="enviarFormulario(event)">
     <input type="text" id="nome" placeholder="Nome" required class="w-full p-2 border rounded">
     <input type="tel" id="telefone" placeholder="Telefone" required class="w-full p-2 border rounded">
     <input type="text" id="localizacao" placeholder="Localização" required class="w-full p-2 border rounded">
-    <input type="number" id="preco" placeholder="Preço estimado (R$)" required class="w-full p-2 border rounded">
+    <input type="number" id="preco" placeholder="Preço estimado" required class="w-full p-2 border rounded">
     <textarea id="descricao" placeholder="Descreva o serviço" required class="w-full p-2 border rounded"></textarea>
 
     <button type="submit" class="bg-green-400 text-white w-full py-2 rounded">
